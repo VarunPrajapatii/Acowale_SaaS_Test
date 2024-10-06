@@ -13,7 +13,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`http://server1.varuntd.com/api/user/register`, {
+      const res = await axios.post(`https://server1.varuntd.com/api/user/register`, {
         email,
         password,
         role

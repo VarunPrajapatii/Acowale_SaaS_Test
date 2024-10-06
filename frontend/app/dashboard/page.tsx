@@ -32,13 +32,13 @@ const Dashboard = () => {
       } else {
         try {
           const res = await axios.post(
-            `http://server1.varuntd.com/api/user/validate-token`,
+            `https://server1.varuntd.com/api/user/validate-token`,
             { token }
           );
 
           if (res.status === 200) {
             const itemsResponse = await axios.get<ItemsResponse>(
-              `http://server1.varuntd.com/api/item?page=${currentPage}&limit=10`,
+              `https://server1.varuntd.com/api/item?page=${currentPage}&limit=10`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.put<UpdateItemResponse>(
-        `http://server1.varuntd.com/api/item/${itemId}`,
+        `https://server1.varuntd.com/api/item/${itemId}`,
         {
           name: editedName,
           image: "",
@@ -103,7 +103,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post<AddItemResponse>(
-        `http://server1.varuntd.com/api/item`,
+        `https://server1.varuntd.com/api/item`,
         {
           name: newItemName,
           image: "",
@@ -131,7 +131,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.delete(
-        `http://server1.varuntd.com/api/item/${itemId}`,
+        `https://server1.varuntd.com/api/item/${itemId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

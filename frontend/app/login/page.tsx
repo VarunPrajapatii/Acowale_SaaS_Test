@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`http://server1.varuntd.com/api/user/login`, {
+      const res = await axios.post(`https://server1.varuntd.com/api/user/login`, {
         email,
         password,
         role,
