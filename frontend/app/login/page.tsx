@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3001/api/user/login", {
+      const res = await axios.post(`${process.env.BACKEND_URL}/api/user/login`, {
         email,
         password,
         role,

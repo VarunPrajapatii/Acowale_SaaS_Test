@@ -13,7 +13,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3001/api/user/register", {
+      const res = await axios.post(`${process.env.BACKEND_URL}/api/user/register`, {
         email,
         password,
         role

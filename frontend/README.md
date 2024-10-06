@@ -1,3 +1,13 @@
+## Tech Stack
+
+**Frontend**: Next.js, TypeScript, Axios
+**Backend**: Node.js, Express, Prisma ORM, JWT, Bcrypt
+**Database**: PostgreSQL
+**CSS Framework**: Preline CSS, TailwindCSS
+**Authentication**: JWT with bcrypt for secure password hashing
+
+
+## Overview
 - Setup backend with express and necessary middlewares
 - Made database model with prisma (User and Item)
 - Made routes for user (/register, /login) used jwt and bcrypt - `/api/user/register` and `/api/user/login`
@@ -22,11 +32,70 @@
     - ItemList renders the list of items with its admin name
     - A logout button, clicking which the token gets cleared and user logs out.
 - Made backend rate limited, with a middleware (100 reqs in 15 minutes max)
-- 
 
 
 
+Project Setup
+1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/acowale-saas-test.git
+cd acowale-saas-test
+```
+2. Install Dependencies
+For Backend:
 
+```bash
+cd backend
+npm install
+```
+For Frontend:
+```bash
+cd frontend
+npm install
+```
+**Backend Environment Variables**
+Create a .env file at the root of the backend directory and add the following environment variables:
+
+DATABASE_URL=your_database_url
+JWT_SECRET=your_jwt_secret
+PORT=3001
+
+**Backend Instructions**
+Run the following Prisma commands to migrate the database and generate the Prisma client:
+
+```bash
+npx prisma migrate dev --name init
+npx prisma generate
+```
+To start the backend server:
+```bash
+node app.js
+```
+The backend will now be running on http://localhost:3001.
+
+**Frontend Instructions**
+Go to the frontend directory and start the frontend app:
+
+```bash
+npm run dev
+```
+The frontend will be running on http://localhost:3000.
+
+Important Note:
+Ensure that the BACKEND_URL environment variable is correctly set in your frontend to point to the backend API (http://localhost:3001).
+
+
+
+## API Endpoints
+**Authentication**
+- POST - /api/user/register: Register a new user with email, password, and role.
+- POST - /api/user/login: Login to get a JWT token.
+
+**Items**
+- GET - /api/items?page=1: Fetch all items (pagination supported).
+- POST - /api/items: Create a new item (admin-only access).
+- PUT - /api/items/:id: Update an existing item (admin-only access).
+- DELETE - /api/items/:id: Delete an item (admin-only access).
 
 
 
