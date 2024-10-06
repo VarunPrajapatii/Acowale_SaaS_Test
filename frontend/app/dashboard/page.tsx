@@ -32,13 +32,13 @@ const Dashboard = () => {
       } else {
         try {
           const res = await axios.post(
-            `http://ec2-52-66-202-121.ap-south-1.compute.amazonaws.com:3001/api/user/validate-token`,
+            `http://server1.varuntd.com/api/user/validate-token`,
             { token }
           );
 
           if (res.status === 200) {
             const itemsResponse = await axios.get<ItemsResponse>(
-              `http://ec2-52-66-202-121.ap-south-1.compute.amazonaws.com:3001/api/item?page=${currentPage}&limit=10`,
+              `http://server1.varuntd.com/api/item?page=${currentPage}&limit=10`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.put<UpdateItemResponse>(
-        `http://ec2-52-66-202-121.ap-south-1.compute.amazonaws.com:3001/api/item/${itemId}`,
+        `http://server1.varuntd.com/api/item/${itemId}`,
         {
           name: editedName,
           image: "",
@@ -103,7 +103,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post<AddItemResponse>(
-        `http://ec2-52-66-202-121.ap-south-1.compute.amazonaws.com:3001/api/item`,
+        `http://server1.varuntd.com/api/item`,
         {
           name: newItemName,
           image: "",
@@ -131,7 +131,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.delete(
-        `http://ec2-52-66-202-121.ap-south-1.compute.amazonaws.com:3001/api/item/${itemId}`,
+        `http://server1.varuntd.com/api/item/${itemId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
