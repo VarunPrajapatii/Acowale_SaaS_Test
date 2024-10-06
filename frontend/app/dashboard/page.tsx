@@ -32,13 +32,13 @@ const Dashboard = () => {
       } else {
         try {
           const res = await axios.post(
-            `${process.env.BACKEND_URL}/api/user/validate-token`,
+            `http://ec2-52-66-202-121.ap-south-1.compute.amazonaws.com:3001/api/user/validate-token`,
             { token }
           );
 
           if (res.status === 200) {
             const itemsResponse = await axios.get<ItemsResponse>(
-              `${process.env.BACKEND_URL}/api/item?page=${currentPage}&limit=10`,
+              `http://ec2-52-66-202-121.ap-south-1.compute.amazonaws.com:3001/api/item?page=${currentPage}&limit=10`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.put<UpdateItemResponse>(
-        `${process.env.BACKEND_URL}/api/item/${itemId}`,
+        `http://ec2-52-66-202-121.ap-south-1.compute.amazonaws.com:3001/api/item/${itemId}`,
         {
           name: editedName,
           image: "",
@@ -103,7 +103,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post<AddItemResponse>(
-        `${process.env.BACKEND_URL}/api/item`,
+        `http://ec2-52-66-202-121.ap-south-1.compute.amazonaws.com:3001/api/item`,
         {
           name: newItemName,
           image: "",
@@ -131,7 +131,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.delete(
-        `${process.env.BACKEND_URL}/api/item/${itemId}`,
+        `http://ec2-52-66-202-121.ap-south-1.compute.amazonaws.com:3001/api/item/${itemId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

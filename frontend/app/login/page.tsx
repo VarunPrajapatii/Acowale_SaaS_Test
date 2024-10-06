@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`${process.env.BACKEND_URL}/api/user/login`, {
+      const res = await axios.post(`http://ec2-52-66-202-121.ap-south-1.compute.amazonaws.com:3001/api/user/login`, {
         email,
         password,
         role,
